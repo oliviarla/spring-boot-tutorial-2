@@ -4,7 +4,6 @@ import com.oliviarla.springboot.domain.posts.Posts;
 import com.oliviarla.springboot.domain.posts.PostsRepository;
 import com.oliviarla.springboot.web.dto.PostsSaveRequestDto;
 import com.oliviarla.springboot.web.dto.PostsUpdateRequestDto;
-import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

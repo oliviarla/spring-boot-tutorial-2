@@ -29,6 +29,15 @@ deploy:
     acl: private #zip 파일 접근을 private로
     local_dir: deploy #before deploy에서 생성한 디렉토리
     wait-until-deployed: true
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: oliviarla-springboot-build #S3 버킷
+    key: spring-boot-tutorial-2.zip
+    bundle_type: zip
+    application: spring-boot-tutorial-group #웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
 
 #CI 실행 완료 시 메일로 알람
 notifications:

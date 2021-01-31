@@ -33,9 +33,10 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: oliviarla-springboot-build #S3 버킷
-    key: spring-boot-tutorial-2.zip
+    key: spring-boot-tutorial-2.zip #빌드 파일 압축해서 전달
     bundle_type: zip
-    application: spring-boot-tutorial-group #웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    application: spring-boot-tutorial #웹 콘솔에서 등록한 CodeDeploy 애플리케이션
+    deployment_group: spring-boot-tutorial-group #웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
 

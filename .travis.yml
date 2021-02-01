@@ -15,9 +15,16 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r spring-boot-tutorial-2 *
-  - mkdir -p deploy
-  - mv spring-boot-tutorial-2.zip deploy/spring-boot-tutorial-2.zip
+  - mkdir -p before-deploy
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy * #before-deploy로 이동 후 전체 압축
+  - cd .. && mkdir -p deploy
+  - mv before-deploy/before-deploy.zip deploy/spring-boot-tutorial-2.zip
+#  - zip -r spring-boot-tutorial-2 *
+#  - mkdir -p deploy
+#  - mv spring-boot-tutorial-2.zip deploy/spring-boot-tutorial-2.zip
 
 deploy:
   - provider: s3
